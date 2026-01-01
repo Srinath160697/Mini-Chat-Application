@@ -68,25 +68,14 @@ class ChatScreen extends StatelessWidget {
                   onPressed: () {
                     final text = input.text.trim();
                     if (text.isEmpty) return;
-
-                    // ✅ Update chat history
                     context.read<ChatHistoryController>().update(
                       user.name,
                       text,
                     );
-
-                    // ✅ Send message for this user only
                     context.read<ChatController>().sendMessage(user.name, text);
 
                     input.clear();
                   },
-                  // onPressed: () {
-                  //   if (input.text.trim().isEmpty) return;
-
-                  //   chat.sendMessage(user.name, input.text.trim());
-
-                  //   input.clear();
-                  // },
                 ),
               ],
             ),
@@ -96,90 +85,3 @@ class ChatScreen extends StatelessWidget {
     );
   }
 }
-
-/////////////////////////////
-// class ChatScreen extends StatelessWidget {
-//   final UserModel user;
-//   const ChatScreen({super.key, required this.user});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final chat = context.watch<ChatController>();
-//     final input = TextEditingController();
-
-//     return Scaffold(
-//       appBar: AppBar(title: Text(user.name)),
-//       body: Column(
-//         children: [
-//           Expanded(
-//             child: ListView.builder(
-//               itemCount: chat.messages.length,
-//               itemBuilder: (_, i) => MessageBubble(message: chat.messages[i]),
-//             ),
-//           ),
-//           Row(
-//             children: [
-//               Expanded(child: TextField(controller: input)),
-//               IconButton(
-//                 icon: const Icon(Icons.send),
-//                 onPressed: () {
-//                   context.read<ChatHistoryController>().update(
-//                     user.name,
-//                     input.text,
-//                   );
-//                   chat.sendMessage(input.text);
-//                   input.clear();
-//                 },
-//               ),
-//             ],
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
-///////////////////////////////////
-// import 'package:demo/controller/chat_controller.dart';
-// import 'package:demo/core/utilities/common_widgets.dart';
-// import 'package:demo/model/user_model.dart';
-// import 'package:flutter/material.dart';
-// import 'package:provider/provider.dart';
-
-// class ChatScreen extends StatelessWidget {
-//   final UserModel user;
-//   const ChatScreen({super.key, required this.user});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final controller = context.watch<ChatController>();
-//     final input = TextEditingController();
-
-//     return Scaffold(
-//       appBar: AppBar(title: Text(user.name)),
-//       body: Column(
-//         children: [
-//           Expanded(
-//             child: ListView.builder(
-//               itemCount: controller.messages.length,
-//               itemBuilder: (_, i) =>
-//                   MessageBubble(message: controller.messages[i]),
-//             ),
-//           ),
-//           Row(
-//             children: [
-//               Expanded(child: TextField(controller: input)),
-//               IconButton(
-//                 icon: const Icon(Icons.send),
-//                 onPressed: () {
-//                   controller.sendMessage(input.text);
-//                   input.clear();
-//                 },
-//               ),
-//             ],
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }

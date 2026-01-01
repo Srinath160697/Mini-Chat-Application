@@ -28,7 +28,6 @@ class MyApp extends StatelessWidget {
       title: 'Mini Chat',
       theme: ThemeData(useMaterial3: true),
       home: const MainScreen(),
-      // home: const HomeScreen(),
     );
   }
 }

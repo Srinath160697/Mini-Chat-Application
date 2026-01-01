@@ -11,19 +11,3 @@ class ApiService {
     return data.first['body'];
   }
 }
-
-/////////////////////////
-// class ApiService {
-//   static Future<String> fetchReceiverMessage() async {
-//     final response = await http.get(
-//       Uri.parse('https://api.quotable.io/random'),
-//     );
-
-//     if (response.statusCode == 200) {
-//       final data = jsonDecode(response.body);
-//       return data['content'];
-//     } else {
-//       throw Exception('Failed to fetch message');
-//     }
-//   }
-// }

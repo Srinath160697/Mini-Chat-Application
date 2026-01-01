@@ -44,35 +44,3 @@ class ChatHistoryTab extends StatelessWidget {
     );
   }
 }
-
-// import 'package:demo/controller/chat_history_controller.dart';
-// import 'package:flutter/material.dart';
-// import 'package:provider/provider.dart';
-
-// class ChatHistoryTab extends StatelessWidget {
-//   const ChatHistoryTab({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final history = context.watch<ChatHistoryController>().history;
-
-//     return ListView.builder(
-//       itemCount: history.length,
-//       itemBuilder: (_, i) {
-//         final h = history[i];
-//         return ListTile(
-//           leading: CircleAvatar(
-//             child: Text(h.userName[0].toUpperCase()),
-//             backgroundColor: Colors.green.shade500,
-//             foregroundColor: Colors.white,
-//           ),
-//           title: Text(h.userName),
-//           subtitle: Text(h.lastMessage),
-//           trailing: Text(
-//             '${h.time.hour}:${h.time.minute.toString().padLeft(2, '0')}',
-//           ),
-//         );
-//       },
-//     );
-//   }
-// }
